@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/config";
 import { getTreatments } from "@/lib/wp";
 
-export const revalidate = 2;
+export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const treatments = await getTreatments();

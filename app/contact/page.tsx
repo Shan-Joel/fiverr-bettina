@@ -7,7 +7,7 @@ import PageHeader from "@/components/PageHeader";
 import ContactBlock from "@/components/ContactBlock";
 import JsonLd from "@/components/JsonLd";
 
-export const revalidate = 2;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("contact");

@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 
-export const revalidate = 2;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("imprint");

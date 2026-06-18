@@ -10,7 +10,7 @@ import WaveDivider from "@/components/WaveDivider";
 import Button from "@/components/Button";
 import JsonLd from "@/components/JsonLd";
 
-export const revalidate = 2;
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const [options, treatments, about] = await Promise.all([

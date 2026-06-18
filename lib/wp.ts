@@ -6,7 +6,7 @@
  * the site at a new backend is a one-line .env change.
  */
 
-import { WP_API_URL, REVALIDATE_SECONDS } from "./config";
+import { WP_API_URL } from "./config";
 import type { Treatment, WpPage, SiteOptions } from "./types";
 
 type QueryParams = Record<string, string | number>;
@@ -25,9 +25,10 @@ export function wpUrl(path: string, params?: QueryParams): string {
 
 async function wpFetch<T>(path: string, params?: QueryParams): Promise<T> {
   const res = await fetch(wpUrl(path, params), {
-    // Tagged "wp" so the /api/revalidate endpoint can purge all WordPress data
-    // instantly when content is saved (on-demand revalidation).
-    next: { revalidate: REVALIDATE_SECONDS, tags: ["wp"] },
+    // Caching disabled: every request fetches fresh data straight from WordPress,
+    // so edits appear in real time on any backend — no ISR wait, no webhook, no
+    // per-backend setup. Trade-off: each page render waits on WordPress.
+    cache: "no-store",
   });
   if (!res.ok) {
     throw new Error(`WordPress request failed (${res.status}) for ${path}`);

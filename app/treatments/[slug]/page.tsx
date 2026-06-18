@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getTreatments, getTreatmentBySlug } from "@/lib/wp";
+import { getTreatmentBySlug } from "@/lib/wp";
 import {
   buildMetadata,
   medicalProcedureLd,
@@ -17,13 +17,7 @@ import FaqAccordion from "@/components/FaqAccordion";
 import Button from "@/components/Button";
 import JsonLd from "@/components/JsonLd";
 
-export const revalidate = 2;
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  const treatments = await getTreatments();
-  return treatments.map((t) => ({ slug: t.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

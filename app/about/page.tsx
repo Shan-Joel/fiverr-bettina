@@ -7,7 +7,7 @@ import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 import JsonLd from "@/components/JsonLd";
 
-export const revalidate = 2;
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("about");
