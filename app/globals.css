@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/*
+ * Brand theme — pulled straight from the practice logo.
+ * Tailwind v4 reads these @theme tokens and generates utilities:
+ *   --color-sage  -> bg-sage / text-sage / border-sage
+ *   --font-display -> font-display, --font-body -> font-body
+ */
+@theme {
+  --color-sage: #aac4bc;
+  --color-sage-soft: #c5d8d1;
+  --color-cream: #f5ede4;
+  --color-sand: #f0dbc6;
+  --color-sand-deep: #e7c9a8;
+  --color-ink: #5f6b66;
+  --color-ink-soft: #7e8c86;
+  --color-stone: #6e6e6e;
+
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body), Georgia, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-stone);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.12;
+}
+
+/* Small caps eyebrow / nav label used throughout the design. */
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+/* Styling for rich text coming from the WordPress editor (post_content / body). */
+.prose-wp {
+  font-family: var(--font-body);
+  color: var(--color-stone);
+}
+.prose-wp p {
+  margin: 0 0 1.1em;
+}
+.prose-wp h2 {
+  font-size: 1.7rem;
+  margin: 1.6em 0 0.5em;
+}
+.prose-wp h3 {
+  font-size: 1.35rem;
+  margin: 1.4em 0 0.4em;
+}
+.prose-wp a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-wp ul,
+.prose-wp ol {
+  margin: 0 0 1.1em 1.2em;
+}
+.prose-wp ul {
+  list-style: disc;
+}
+.prose-wp ol {
+  list-style: decimal;
+}
+.prose-wp li {
+  margin: 0.25em 0;
+}
+.prose-wp strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
