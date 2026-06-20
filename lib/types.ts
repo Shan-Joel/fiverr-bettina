@@ -66,6 +66,7 @@ export interface SiteOptions {
   hero_subtext: string;
   hero_cta_label: string;
   hero_cta2_label: string;
+  booking_url: string;
   hero_image: WpImage | null;
   // Homepage sections
   philosophy_eyebrow: string;

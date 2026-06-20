@@ -38,9 +38,9 @@ export default async function AboutPage() {
       />
 
       <Section background="white">
-        <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-[4fr_8fr] lg:gap-16">
           {portrait && (
-            <div className="relative aspect-[4/5] overflow-hidden bg-cream lg:sticky lg:top-28 lg:self-start">
+            <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden bg-cream lg:sticky lg:top-28 lg:self-start">
               <Image
                 src={portrait.url}
                 alt={portrait.alt || "Dr. Bettina Wittmann"}

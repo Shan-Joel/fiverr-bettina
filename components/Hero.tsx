@@ -10,7 +10,10 @@ export default function Hero({ options }: { options: SiteOptions }) {
     <section className="grid items-stretch lg:grid-cols-2">
       <div className="flex flex-col justify-center bg-cream px-6 py-20 sm:px-12 lg:py-32 lg:pl-[max(2rem,calc((100vw-72rem)/2+2rem))]">
         <div className="max-w-md">
-          <p className="eyebrow mb-6 text-sage">
+          <p
+            className="eyebrow mb-6 text-sage"
+            style={{ fontSize: "0.95rem", letterSpacing: "0.2em" }}
+          >
             {options.hero_eyebrow || "Aesthetic & Laser Medicine"}
           </p>
           <h1 className="text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
@@ -22,7 +25,7 @@ export default function Hero({ options }: { options: SiteOptions }) {
             </p>
           )}
           <div className="mt-9 flex flex-wrap gap-4">
-            <Button href="/contact" variant="solid">
+            <Button href={options.booking_url || "/contact"} variant="solid">
               {options.hero_cta_label || "Book a consultation"}
             </Button>
             <Button href="/#treatments" variant="outline">

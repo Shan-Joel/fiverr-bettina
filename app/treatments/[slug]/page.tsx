@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getTreatmentBySlug } from "@/lib/wp";
+import { getTreatmentBySlug, getOptions } from "@/lib/wp";
 import {
   buildMetadata,
   medicalProcedureLd,
@@ -42,7 +42,10 @@ export default async function TreatmentPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const treatment = await getTreatmentBySlug(slug);
+  const [treatment, options] = await Promise.all([
+    getTreatmentBySlug(slug),
+    getOptions(),
+  ]);
   if (!treatment) notFound();
 
   const { title, acf_data } = treatment;
@@ -148,18 +151,18 @@ export default async function TreatmentPage({
       )}
 
       {/* CTA */}
-      <section className="bg-sage">
+      <section className="bg-cream">
         <Container>
           <div className="flex flex-col items-center gap-6 py-16 text-center">
-            <h2 className="max-w-xl text-3xl text-white sm:text-4xl">
+            <h2 className="max-w-xl text-3xl text-ink sm:text-4xl">
               Interested in {title.rendered}?
             </h2>
-            <Button href="/contact" variant="light">
+            <Button href={options.booking_url || "/contact"} variant="solid">
               Book a consultation
             </Button>
             <Link
               href="/#treatments"
-              className="text-sm text-white/80 underline-offset-4 hover:underline"
+              className="text-sm text-stone underline-offset-4 hover:text-ink hover:underline"
             >
               ← All treatments
             </Link>

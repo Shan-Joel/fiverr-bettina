@@ -94,23 +94,23 @@ export default async function HomePage() {
       </Section>
 
       {/* Contact CTA */}
-      <section className="bg-sage">
+      <section className="bg-cream">
         <Container>
           <div className="flex flex-col items-center gap-7 py-20 text-center">
-            <h2 className="max-w-2xl text-4xl text-white sm:text-5xl">
+            <h2 className="max-w-2xl text-4xl text-ink sm:text-5xl">
               {options.cta_heading || "Ready to talk about your treatment?"}
             </h2>
-            <p className="max-w-xl text-lg text-white/85">
+            <p className="max-w-xl text-lg text-stone">
               {options.cta_text ||
                 "Arrange a personal, no-obligation consultation. We look forward to hearing from you."}
             </p>
-            <Button href="/contact" variant="light">
+            <Button href={options.booking_url || "/contact"} variant="solid">
               {options.hero_cta_label || "Book a consultation"}
             </Button>
             {options.email && (
               <Link
                 href={`mailto:${options.email}`}
-                className="text-sm text-white/80 underline-offset-4 hover:underline"
+                className="text-sm text-stone underline-offset-4 hover:text-ink hover:underline"
               >
                 {options.email}
               </Link>

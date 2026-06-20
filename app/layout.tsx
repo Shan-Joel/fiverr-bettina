@@ -40,11 +40,7 @@ export default async function RootLayout({
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white">
-        <Header
-          treatments={navTreatments}
-          logoLine1={options.logo_line1 || undefined}
-          logoLine2={options.logo_line2 || undefined}
-        />
+        <Header treatments={navTreatments} />
         <main className="flex-1">{children}</main>
         <Footer options={options} treatments={treatments} />
       </body>

@@ -14,6 +14,8 @@
   --color-sand-deep: #e7c9a8;
   --color-ink: #5f6b66;
   --color-ink-soft: #7e8c86;
+  --color-deep: #5f6b66;
+  --color-pine: #36423d;
   --color-stone: #6e6e6e;
 
   --font-display: var(--font-display), Georgia, "Times New Roman", serif;
@@ -95,4 +97,22 @@ h4 {
 .prose-wp strong {
   color: var(--color-ink);
   font-weight: 600;
+}
+.prose-wp table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5em 0 2.2em;
+  font-size: 1.05rem;
+}
+.prose-wp th,
+.prose-wp td {
+  text-align: left;
+  padding: 0.7em 0.2em;
+  border-bottom: 1px solid var(--color-sand);
+}
+.prose-wp td:last-child {
+  text-align: right;
+  white-space: nowrap;
+  color: var(--color-ink);
+  font-family: var(--font-display);
 }

@@ -12,12 +12,8 @@ interface NavTreatment {
 
 export default function Header({
   treatments,
-  logoLine1,
-  logoLine2,
 }: {
   treatments: NavTreatment[];
-  logoLine1?: string;
-  logoLine2?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -26,7 +22,7 @@ export default function Header({
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-            <Logo line1={logoLine1} line2={logoLine2} />
+            <Logo className="h-16 w-auto sm:h-[4.75rem]" priority />
           </Link>
 
           {/* Desktop nav */}
@@ -49,6 +45,9 @@ export default function Header({
                 </div>
               </div>
             </div>
+            <Link href="/prices" className="eyebrow text-stone transition-colors hover:text-sage">
+              Prices
+            </Link>
             <Link href="/about" className="eyebrow text-stone transition-colors hover:text-sage">
               About
             </Link>
@@ -86,8 +85,15 @@ export default function Header({
                 </Link>
               ))}
               <Link
-                href="/about"
+                href="/prices"
                 className="border-t border-sand/60 py-3 font-[family-name:var(--font-display)] text-xl text-ink"
+                onClick={() => setOpen(false)}
+              >
+                Prices
+              </Link>
+              <Link
+                href="/about"
+                className="py-3 font-[family-name:var(--font-display)] text-xl text-ink"
                 onClick={() => setOpen(false)}
               >
                 About

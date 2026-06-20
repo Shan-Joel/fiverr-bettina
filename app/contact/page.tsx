@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getOptions, getPageBySlug } from "@/lib/wp";
 import { buildMetadata, medicalBusinessLd } from "@/lib/seo";
@@ -25,6 +26,13 @@ export default async function ContactPage() {
   ]);
   if (!page) notFound();
 
+  const portrait = page.acf_data.page_image;
+  const mapQuery = encodeURIComponent(
+    `${options.practice_name}, ${(options.address || "").replace(/\n+/g, ", ")}`,
+  );
+  const mapEmbed = `https://www.google.com/maps?q=${mapQuery}&z=15&output=embed`;
+  const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
   return (
     <>
       <JsonLd data={medicalBusinessLd(options)} />
@@ -35,15 +43,59 @@ export default async function ContactPage() {
       />
 
       <Section background="white">
-        {page.content.rendered && (
-          <div
-            className="prose-wp mb-12 max-w-2xl text-lg"
-            // Page content authored in the WordPress editor (trusted CMS content).
-            dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+        <div className="grid gap-12 lg:grid-cols-[7fr_4fr] lg:gap-16">
+          <div>
+            {page.content.rendered && (
+              <div
+                className="prose-wp mb-10 max-w-2xl text-lg"
+                // Page content authored in the WordPress editor (trusted CMS content).
+                dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+              />
+            )}
+            <div className="border-t border-sand pt-10">
+              <ContactBlock options={options} />
+            </div>
+          </div>
+
+          {portrait && (
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-[260px] overflow-hidden bg-cream lg:mx-0">
+              <Image
+                src={portrait.url}
+                alt={portrait.alt || "Dr. Bettina Wittmann"}
+                fill
+                sizes="(max-width: 1024px) 60vw, 260px"
+                className="object-cover object-top"
+              />
+            </div>
+          )}
+        </div>
+      </Section>
+
+      {/* Location map */}
+      <Section background="cream">
+        <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <p className="eyebrow text-sage">Find us</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">Our location</h2>
+          </div>
+          <a
+            href={mapLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="eyebrow text-sage transition-colors hover:text-ink"
+          >
+            Open in Google Maps →
+          </a>
+        </div>
+        <div className="overflow-hidden border border-sand">
+          <iframe
+            title="Practice location on Google Maps"
+            src={mapEmbed}
+            width="100%"
+            height="360"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="block h-[320px] w-full sm:h-[360px]"
           />
-        )}
-        <div className="border-t border-sand pt-12">
-          <ContactBlock options={options} />
         </div>
       </Section>
     </>
