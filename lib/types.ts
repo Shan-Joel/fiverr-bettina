@@ -133,6 +133,10 @@ export interface SiteOptions {
   phone_1: string;
   phone_2: string;
   email: string;
+  /** Address/place name for the contact-page map. Falls back to practice_name + address. */
+  map_address?: string;
+  /** Optional full Google Maps link for the "Open in Google Maps" button. */
+  map_url?: string;
   footer_text: string;
   // SEO
   seo_default_title: string;

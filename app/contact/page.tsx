@@ -27,11 +27,14 @@ export default async function ContactPage() {
   if (!page) notFound();
 
   const portrait = page.acf_data.page_image;
-  const mapQuery = encodeURIComponent(
-    `${options.practice_name}, ${(options.address || "").replace(/\n+/g, ", ")}`,
-  );
+  const mapAddress =
+    options.map_address ||
+    `${options.practice_name}, ${(options.address || "").replace(/\n+/g, ", ")}`;
+  const mapQuery = encodeURIComponent(mapAddress);
   const mapEmbed = `https://www.google.com/maps?q=${mapQuery}&z=15&output=embed`;
-  const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+  const mapLink =
+    options.map_url ||
+    `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
   const l = options.labels ?? {};
 
   return (
