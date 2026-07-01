@@ -11,6 +11,7 @@ export default function Footer({
   treatments: Treatment[];
 }) {
   const year = new Date().getFullYear();
+  const l = options.labels ?? {};
 
   return (
     <footer className="bg-sage text-pine">
@@ -30,7 +31,7 @@ export default function Footer({
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-pine">Treatments</p>
+            <p className="eyebrow mb-4 text-pine">{l.footer_treatments || "Treatments"}</p>
             <ul className="space-y-2.5">
               {treatments.map((t) => (
                 <li key={t.slug}>
@@ -46,7 +47,7 @@ export default function Footer({
           </div>
 
           <div>
-            <p className="eyebrow mb-4 text-pine">Contact</p>
+            <p className="eyebrow mb-4 text-pine">{l.footer_contact || "Contact"}</p>
             <address className="space-y-2.5 text-sm not-italic text-pine/90">
               {options.address && (
                 <p className="whitespace-pre-line">{options.address}</p>
@@ -82,10 +83,10 @@ export default function Footer({
           </p>
           <div className="flex gap-6">
             <Link href="/imprint" className="hover:text-pine">
-              Imprint
+              {l.footer_imprint || "Imprint"}
             </Link>
             <Link href="/privacy" className="hover:text-pine">
-              Privacy
+              {l.footer_privacy || "Privacy"}
             </Link>
           </div>
         </div>

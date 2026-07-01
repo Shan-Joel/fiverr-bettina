@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPageBySlug } from "@/lib/wp";
+import { getOptions, getPageBySlug } from "@/lib/wp";
 import { buildMetadata } from "@/lib/seo";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
@@ -17,13 +17,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function PricesPage() {
-  const page = await getPageBySlug("prices");
+  const [page, options] = await Promise.all([
+    getPageBySlug("prices"),
+    getOptions(),
+  ]);
   if (!page) notFound();
 
   return (
     <>
       <PageHeader
-        eyebrow="Prices"
+        eyebrow={options.labels?.prices_eyebrow || "Prices"}
         title={page.title.rendered}
         intro={page.acf_data.intro}
       />

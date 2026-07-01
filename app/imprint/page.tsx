@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPageBySlug } from "@/lib/wp";
+import { getOptions, getPageBySlug } from "@/lib/wp";
 import { buildMetadata } from "@/lib/seo";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
@@ -17,12 +17,18 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ImprintPage() {
-  const page = await getPageBySlug("imprint");
+  const [page, options] = await Promise.all([
+    getPageBySlug("imprint"),
+    getOptions(),
+  ]);
   if (!page) notFound();
 
   return (
     <>
-      <PageHeader eyebrow="Legal" title={page.title.rendered} />
+      <PageHeader
+        eyebrow={options.labels?.legal_eyebrow || "Legal"}
+        title={page.title.rendered}
+      />
       <Section background="white">
         <div
           className="prose-wp max-w-2xl text-lg"

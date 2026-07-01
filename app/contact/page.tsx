@@ -32,12 +32,13 @@ export default async function ContactPage() {
   );
   const mapEmbed = `https://www.google.com/maps?q=${mapQuery}&z=15&output=embed`;
   const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+  const l = options.labels ?? {};
 
   return (
     <>
       <JsonLd data={medicalBusinessLd(options)} />
       <PageHeader
-        eyebrow="Contact"
+        eyebrow={l.contact_page_eyebrow || "Contact"}
         title={page.title.rendered}
         intro={page.acf_data.intro}
       />
@@ -75,8 +76,8 @@ export default async function ContactPage() {
       <Section background="cream">
         <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
           <div>
-            <p className="eyebrow text-sage">Find us</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Our location</h2>
+            <p className="eyebrow text-sage">{l.map_eyebrow || "Find us"}</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">{l.map_heading || "Our location"}</h2>
           </div>
           <a
             href={mapLink}
@@ -84,7 +85,7 @@ export default async function ContactPage() {
             rel="noopener noreferrer"
             className="eyebrow text-sage transition-colors hover:text-ink"
           >
-            Open in Google Maps →
+            {l.map_link || "Open in Google Maps →"}
           </a>
         </div>
         <div className="overflow-hidden border border-sand">

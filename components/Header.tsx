@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Container from "./Container";
 import Logo from "./Logo";
+import type { SiteLabels } from "@/lib/types";
 
 interface NavTreatment {
   slug: string;
@@ -12,10 +13,17 @@ interface NavTreatment {
 
 export default function Header({
   treatments,
+  labels,
 }: {
   treatments: NavTreatment[];
+  labels?: SiteLabels;
 }) {
   const [open, setOpen] = useState(false);
+  const l = labels ?? {};
+  const navTreatments = l.nav_treatments || "Treatments";
+  const navPrices = l.nav_prices || "Prices";
+  const navAbout = l.nav_about || "About";
+  const navContact = l.nav_contact || "Contact";
 
   return (
     <header className="sticky top-0 z-50 border-b border-sand/70 bg-white/90 backdrop-blur-sm">
@@ -29,7 +37,7 @@ export default function Header({
           <nav className="hidden items-center gap-9 md:flex">
             <div className="group relative">
               <button className="eyebrow text-stone transition-colors hover:text-sage">
-                Treatments
+                {navTreatments}
               </button>
               <div className="invisible absolute left-1/2 top-full w-56 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
                 <div className="border border-sand bg-white py-2 shadow-sm">
@@ -46,13 +54,13 @@ export default function Header({
               </div>
             </div>
             <Link href="/prices" className="eyebrow text-stone transition-colors hover:text-sage">
-              Prices
+              {navPrices}
             </Link>
             <Link href="/about" className="eyebrow text-stone transition-colors hover:text-sage">
-              About
+              {navAbout}
             </Link>
             <Link href="/contact" className="eyebrow text-stone transition-colors hover:text-sage">
-              Contact
+              {navContact}
             </Link>
           </nav>
 
@@ -73,7 +81,7 @@ export default function Header({
         <nav className="border-t border-sand bg-white md:hidden">
           <Container>
             <div className="flex flex-col py-4">
-              <span className="eyebrow py-2 text-sage">Treatments</span>
+              <span className="eyebrow py-2 text-sage">{navTreatments}</span>
               {treatments.map((t) => (
                 <Link
                   key={t.slug}
@@ -89,21 +97,21 @@ export default function Header({
                 className="border-t border-sand/60 py-3 font-[family-name:var(--font-display)] text-xl text-ink"
                 onClick={() => setOpen(false)}
               >
-                Prices
+                {navPrices}
               </Link>
               <Link
                 href="/about"
                 className="py-3 font-[family-name:var(--font-display)] text-xl text-ink"
                 onClick={() => setOpen(false)}
               >
-                About
+                {navAbout}
               </Link>
               <Link
                 href="/contact"
                 className="py-3 font-[family-name:var(--font-display)] text-xl text-ink"
                 onClick={() => setOpen(false)}
               >
-                Contact
+                {navContact}
               </Link>
             </div>
           </Container>

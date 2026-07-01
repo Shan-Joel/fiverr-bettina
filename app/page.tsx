@@ -51,7 +51,11 @@ export default async function HomePage() {
         </div>
         <div className="grid gap-7 md:grid-cols-3">
           {treatments.map((t) => (
-            <TreatmentCard key={t.slug} treatment={t} />
+            <TreatmentCard
+              key={t.slug}
+              treatment={t}
+              learnMore={options.labels?.learn_more}
+            />
           ))}
         </div>
       </Section>

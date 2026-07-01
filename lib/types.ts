@@ -59,6 +59,52 @@ export interface WpPage {
   acf_data: PageAcf;
 }
 
+/**
+ * UI microcopy (nav, footer, section eyebrows, buttons, 404) exposed via the
+ * `labels` ACF group on Site Settings, so every visible string is translatable.
+ * All keys are optional — the frontend supplies English fallbacks so a missing
+ * or unseeded field never renders blank.
+ */
+export interface SiteLabels {
+  // Header nav
+  nav_treatments?: string;
+  nav_prices?: string;
+  nav_about?: string;
+  nav_contact?: string;
+  // Footer
+  footer_treatments?: string;
+  footer_contact?: string;
+  footer_imprint?: string;
+  footer_privacy?: string;
+  // Contact details block
+  contact_visit?: string;
+  contact_touch?: string;
+  // Treatment page
+  treatment_eyebrow?: string;
+  benefits_eyebrow?: string;
+  faq_eyebrow?: string;
+  faq_heading?: string;
+  book_consultation?: string;
+  interested_prefix?: string;
+  all_treatments?: string;
+  // Treatment card
+  learn_more?: string;
+  // Contact page map + eyebrow
+  map_eyebrow?: string;
+  map_heading?: string;
+  map_link?: string;
+  contact_page_eyebrow?: string;
+  // Inner page eyebrows
+  about_page_eyebrow?: string;
+  prices_eyebrow?: string;
+  legal_eyebrow?: string;
+  // 404
+  notfound_eyebrow?: string;
+  notfound_heading?: string;
+  notfound_text?: string;
+  notfound_button?: string;
+}
+
 export interface SiteOptions {
   // Hero
   hero_eyebrow: string;
@@ -91,4 +137,6 @@ export interface SiteOptions {
   // SEO
   seo_default_title: string;
   seo_default_description: string;
+  // UI microcopy (translatable)
+  labels?: SiteLabels;
 }

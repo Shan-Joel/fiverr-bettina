@@ -3,11 +3,12 @@ import type { SiteOptions } from "@/lib/types";
 /** Contact details rendered from the global site options. */
 export default function ContactBlock({ options }: { options: SiteOptions }) {
   const tel = (n: string) => n.replace(/[^+\d]/g, "");
+  const l = options.labels ?? {};
 
   return (
     <div className="grid gap-10 sm:grid-cols-2">
       <div>
-        <p className="eyebrow mb-4 text-sage">Visit us</p>
+        <p className="eyebrow mb-4 text-sage">{l.contact_visit || "Visit us"}</p>
         <p className="font-[family-name:var(--font-display)] text-2xl leading-snug text-ink">
           {options.practice_name || "Ärztliche Privatpraxis Bettina Wittmann"}
         </p>
@@ -18,7 +19,7 @@ export default function ContactBlock({ options }: { options: SiteOptions }) {
         )}
       </div>
       <div>
-        <p className="eyebrow mb-4 text-sage">Get in touch</p>
+        <p className="eyebrow mb-4 text-sage">{l.contact_touch || "Get in touch"}</p>
         <ul className="space-y-3 text-lg text-ink">
           {options.phone_1 && (
             <li>

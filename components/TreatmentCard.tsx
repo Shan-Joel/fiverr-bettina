@@ -3,7 +3,13 @@ import Link from "next/link";
 import type { Treatment } from "@/lib/types";
 
 /** A treatment teaser card for the home page grid. */
-export default function TreatmentCard({ treatment }: { treatment: Treatment }) {
+export default function TreatmentCard({
+  treatment,
+  learnMore,
+}: {
+  treatment: Treatment;
+  learnMore?: string;
+}) {
   const { slug, title, acf_data } = treatment;
   const img = acf_data.hero_image;
 
@@ -37,7 +43,7 @@ export default function TreatmentCard({ treatment }: { treatment: Treatment }) {
           </p>
         )}
         <span className="eyebrow mt-5 text-sage transition-colors group-hover:text-ink">
-          Learn more →
+          {learnMore || "Learn more →"}
         </span>
       </div>
     </Link>

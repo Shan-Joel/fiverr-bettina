@@ -54,6 +54,7 @@ export default async function TreatmentPage({
   const faqs = acf_data.faq ?? [];
   const gallery = acf_data.gallery ?? [];
   const path = `/treatments/${slug}`;
+  const l = options.labels ?? {};
 
   const structuredData: object[] = [
     medicalProcedureLd(treatment, path),
@@ -84,7 +85,7 @@ export default async function TreatmentPage({
             <div className="absolute inset-0 flex items-end">
               <Container>
                 <div className="pb-10 [text-shadow:0_2px_16px_rgba(0,0,0,0.6)]">
-                  <p className="eyebrow mb-3 text-white/90">Treatment</p>
+                  <p className="eyebrow mb-3 text-white/90">{l.treatment_eyebrow || "Treatment"}</p>
                   <h1 className="text-4xl text-white sm:text-6xl">
                     {title.rendered}
                   </h1>
@@ -95,7 +96,7 @@ export default async function TreatmentPage({
         ) : (
           <div className="bg-cream py-24">
             <Container>
-              <p className="eyebrow mb-3 text-sage">Treatment</p>
+              <p className="eyebrow mb-3 text-sage">{l.treatment_eyebrow || "Treatment"}</p>
               <h1 className="text-5xl sm:text-6xl">{title.rendered}</h1>
             </Container>
           </div>
@@ -124,7 +125,7 @@ export default async function TreatmentPage({
       {benefits.length > 0 && (
         <Section background="cream">
           <div className="mb-10 text-center">
-            <p className="eyebrow text-sage">Why choose this treatment</p>
+            <p className="eyebrow text-sage">{l.benefits_eyebrow || "Why choose this treatment"}</p>
           </div>
           <Benefits benefits={benefits} />
         </Section>
@@ -142,8 +143,8 @@ export default async function TreatmentPage({
         <Section background="cream">
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 text-center">
-              <p className="eyebrow text-sage">Frequently asked</p>
-              <h2 className="mt-3 text-4xl">Questions &amp; answers</h2>
+              <p className="eyebrow text-sage">{l.faq_eyebrow || "Frequently asked"}</p>
+              <h2 className="mt-3 text-4xl">{l.faq_heading || "Questions & answers"}</h2>
             </div>
             <FaqAccordion faqs={faqs} />
           </div>
@@ -155,16 +156,16 @@ export default async function TreatmentPage({
         <Container>
           <div className="flex flex-col items-center gap-6 py-16 text-center">
             <h2 className="max-w-xl text-3xl text-ink sm:text-4xl">
-              Interested in {title.rendered}?
+              {l.interested_prefix || "Interested in"} {title.rendered}?
             </h2>
             <Button href={options.booking_url || "/contact"} variant="solid">
-              Book a consultation
+              {l.book_consultation || "Book a consultation"}
             </Button>
             <Link
               href="/#treatments"
               className="text-sm text-stone underline-offset-4 hover:text-ink hover:underline"
             >
-              ← All treatments
+              {l.all_treatments || "← All treatments"}
             </Link>
           </div>
         </Container>
