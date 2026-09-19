@@ -20,7 +20,7 @@ export default function Footer({
         <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Link href="/" aria-label="Home">
-                <span className="inline-block rounded-md bg-white/65 px-4 py-3">
+                <span className="inline-block rounded-md bg-white/85 px-5 py-3">
               <Logo className="h-14 w-auto" />
             </span>
             </Link>

@@ -10,12 +10,12 @@ export default function Logo({
 }) {
   return (
     <Image
-      src="/logo.png"
+      src="/privatpraxis-wittmann-logo-new.png"
       alt="Ärztliche Privatpraxis Bettina Wittmann — Ästhetik & Lasermedizin"
-      width={180}
-      height={0}
-      sizes="100vw"
-      style={{ width: '180px', height: 'auto' }}
+      width={502}
+      height={256}
+      sizes="(max-width: 768px) 120px, 160px"
+      style={{ width: 'auto', height: '100%' }}
       priority={priority}
       className={className}
     />
