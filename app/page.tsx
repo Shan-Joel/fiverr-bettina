@@ -26,8 +26,8 @@ export default async function HomePage() {
 
       <Hero options={options} />
 
-      {/* Philosophy / intro */}
-      <Section background="white" className="text-center">
+      {/* Philosophy / intro — waveform art via .section-waveform in globals.css */}
+      <Section background="white" className="text-center section-waveform">
         {options.philosophy_eyebrow && (
           <p className="eyebrow text-sage">{options.philosophy_eyebrow}</p>
         )}
@@ -97,16 +97,8 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      {/* Contact CTA — waveform art as background */}
-      <section
-        className="bg-cream"
-        style={{
-          backgroundImage: "url('/waveform-art.png')",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom center",
-          backgroundSize: "100% auto",
-        }}
-      >
+      {/* Contact CTA */}
+      <section className="bg-cream">
         <Container>
           <div className="flex flex-col items-center gap-7 py-20 text-center">
             <h2 className="max-w-2xl text-4xl text-ink sm:text-5xl">
