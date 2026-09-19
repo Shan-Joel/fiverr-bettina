@@ -12,7 +12,7 @@ export default function Hero({ options }: { options: SiteOptions }) {
         <div className="max-w-md">
           <p
             className="eyebrow mb-6 text-sage"
-            style={{ fontSize: "0.95rem", letterSpacing: "0.2em" }}
+            style={{ fontSize: "1.2rem", letterSpacing: "0.2em" }}
           >
             {options.hero_eyebrow || "Aesthetic & Laser Medicine"}
           </p>
@@ -25,10 +25,10 @@ export default function Hero({ options }: { options: SiteOptions }) {
             </p>
           )}
           <div className="mt-9 flex flex-wrap gap-4">
-            <Button href={options.booking_url || "/contact"} variant="solid">
+            <Button href={options.booking_url || "/contact"} variant="solid" className="!text-[0.9rem] sm:!text-base">
               {options.hero_cta_label || "Book a consultation"}
             </Button>
-            <Button href="/#treatments" variant="outline">
+            <Button href="/#treatments" variant="outline" className="!text-[0.9rem] sm:!text-base">
               {options.hero_cta2_label || "Our treatments"}
             </Button>
           </div>
