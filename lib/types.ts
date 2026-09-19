@@ -138,6 +138,10 @@ export interface SiteOptions {
   /** Optional full Google Maps link for the "Open in Google Maps" button. */
   map_url?: string;
   footer_text: string;
+  /** Instagram profile URL (editable in WordPress Site Settings). */
+  social_instagram?: string;
+  /** Facebook profile URL (editable in WordPress Site Settings). */
+  social_facebook?: string;
   // SEO
   seo_default_title: string;
   seo_default_description: string;

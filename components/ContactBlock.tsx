@@ -1,4 +1,5 @@
 import type { SiteOptions } from "@/lib/types";
+import SocialIcons from "./SocialIcons";
 
 /** Contact details rendered from the global site options. */
 export default function ContactBlock({ options }: { options: SiteOptions }) {
@@ -43,6 +44,12 @@ export default function ContactBlock({ options }: { options: SiteOptions }) {
             </li>
           )}
         </ul>
+          <SocialIcons
+            instagram={options.social_instagram}
+            facebook={options.social_facebook}
+            iconClassName="h-6 w-6"
+            className="mt-6 text-ink"
+          />
       </div>
     </div>
   );

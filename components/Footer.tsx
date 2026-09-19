@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "./Container";
 import Logo from "./Logo";
+import SocialIcons from "./SocialIcons";
 import type { SiteOptions, Treatment } from "@/lib/types";
 
 export default function Footer({
@@ -28,6 +29,12 @@ export default function Footer({
                 {options.footer_text}
               </p>
             )}
+            <SocialIcons
+              instagram={options.social_instagram}
+              facebook={options.social_facebook}
+              iconClassName="h-5 w-5"
+              className="mt-5 text-pine/80"
+            />
           </div>
 
           <div>
