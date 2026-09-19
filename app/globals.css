@@ -65,51 +65,63 @@ h4 {
   font-family: var(--font-body);
   color: var(--color-stone);
 }
+
 .prose-wp p {
   margin: 0 0 1.1em;
 }
+
 .prose-wp h2 {
   font-size: 1.7rem;
   margin: 1.6em 0 0.5em;
 }
+
 .prose-wp h3 {
   font-size: 1.35rem;
   margin: 1.4em 0 0.4em;
 }
+
 .prose-wp a {
   color: var(--color-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
 .prose-wp ul,
 .prose-wp ol {
   margin: 0 0 1.1em 1.2em;
 }
+
 .prose-wp ul {
   list-style: disc;
 }
+
 .prose-wp ol {
   list-style: decimal;
 }
+
 .prose-wp li {
   margin: 0.25em 0;
 }
+
 .prose-wp strong {
   color: var(--color-ink);
   font-weight: 600;
 }
+
 .prose-wp table {
   width: 100%;
   border-collapse: collapse;
   margin: 0.5em 0 2.2em;
   font-size: 1.05rem;
 }
+
 .prose-wp th,
 .prose-wp td {
   text-align: left;
   padding: 0.7em 0.2em;
   border-bottom: 1px solid var(--color-sand);
 }
+
 .prose-wp td:last-child {
   text-align: right;
   white-space: nowrap;
@@ -119,41 +131,47 @@ h4 {
 
 /* ── Philosophy section — waveform art background ───────────────────────── */
 /*
- * The waveform image sits at the bottom of the philosophy intro section.
- * Bottom padding is scaled per breakpoint so the wave always shows fully
- * without adding a separate section element.
+ * padding-bottom is expressed as a % of element width (CSS spec), so it
+ * scales proportionally with the viewport — no !important overrides needed.
+ * On narrower viewports the image is scaled up (160%/220%) and padding
+ * is increased accordingly to keep the full wave visible.
  */
 .philosophy-wave {
   background-image: url('/waveform-art.png');
   background-repeat: no-repeat;
   background-position: bottom center;
-  background-size: 100% auto;
-  padding-bottom: 520px !important;
+  background-size: contain;
+  padding-bottom: 26%;
+  max-width: 1920px;
+  margin: auto;
 }
 
+/* ≤ 1280px — contain scales the image naturally, slight padding bump */
 @media (max-width: 1280px) {
   .philosophy-wave {
-    padding-bottom: 380px !important;
+    padding-bottom: 27%;
   }
 }
 
 @media (max-width: 1024px) {
   .philosophy-wave {
-    padding-bottom: 280px !important;
+    padding-bottom: 28%;
   }
 }
 
+/* ≤ 768px — image scaled to 160% width, so height grows; increase padding */
 @media (max-width: 768px) {
   .philosophy-wave {
-    padding-bottom: 200px !important;
     background-size: 160% auto;
     background-position: bottom center;
+    padding-bottom: 38%;
   }
 }
 
+/* ≤ 480px — image at 220% width, even taller relative to viewport */
 @media (max-width: 480px) {
   .philosophy-wave {
-    padding-bottom: 130px !important;
     background-size: 220% auto;
+    padding-bottom: 52%;
   }
 }
