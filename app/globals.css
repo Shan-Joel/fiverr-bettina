@@ -117,46 +117,43 @@ h4 {
   font-family: var(--font-display);
 }
 
-/* ── Philosophy section: waveform art as background ─────────────────────── */
-/* The bottom padding creates space below the text so the wave image shows.  */
-/* Values scale up progressively: the image is wider so more space is needed */
-/* on larger screens to keep the proportions looking natural.                 */
-.section-waveform {
-  background-image: url("/waveform-art.png");
+/* ── Philosophy section — waveform art background ───────────────────────── */
+/*
+ * The waveform image sits at the bottom of the philosophy intro section.
+ * Bottom padding is scaled per breakpoint so the wave always shows fully
+ * without adding a separate section element.
+ */
+.philosophy-wave {
+  background-image: url('/waveform-art.png');
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: 100% auto;
-  /* Mobile — compact padding, wave is visible but small */
-  padding-bottom: 180px !important;
+  padding-bottom: 520px !important;
 }
 
-@media (min-width: 640px) {
-  /* Small tablet */
-  .section-waveform {
+@media (max-width: 1280px) {
+  .philosophy-wave {
+    padding-bottom: 380px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .philosophy-wave {
     padding-bottom: 280px !important;
   }
 }
 
-@media (min-width: 1024px) {
-  /* Desktop */
-  .section-waveform {
-    padding-bottom: 400px !important;
-  }
-}
-
-@media (min-width: 1280px) {
-  /* Wide desktop */
-  .section-waveform {
-    padding-bottom: 520px !important;
-  }
-}
-
-@media (min-width: 1920px) {
-  /* Ultra-wide — cap the max width so the image doesn't stretch */
-  .section-waveform {
-    background-size: 1920px auto;
+@media (max-width: 768px) {
+  .philosophy-wave {
+    padding-bottom: 200px !important;
+    background-size: 160% auto;
     background-position: bottom center;
-    padding-bottom: 550px !important;
   }
 }
 
+@media (max-width: 480px) {
+  .philosophy-wave {
+    padding-bottom: 130px !important;
+    background-size: 220% auto;
+  }
+}

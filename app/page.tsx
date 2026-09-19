@@ -26,8 +26,8 @@ export default async function HomePage() {
 
       <Hero options={options} />
 
-      {/* Philosophy / intro — waveform art via .section-waveform in globals.css */}
-      <Section background="white" className="text-center section-waveform">
+      {/* Philosophy / intro — waveform art applied via .philosophy-wave in globals.css */}
+      <Section background="white" className="text-center philosophy-wave">
         {options.philosophy_eyebrow && (
           <p className="eyebrow text-sage">{options.philosophy_eyebrow}</p>
         )}
