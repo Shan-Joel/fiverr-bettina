@@ -156,7 +156,7 @@ export default async function TreatmentPage({
         <Container>
           <div className="flex flex-col items-center gap-6 py-16 text-center">
             <h2 className="max-w-xl text-3xl text-ink sm:text-4xl">
-              {l.interested_prefix || "Interested in"} {title.rendered}?
+              {l.interested_prefix || "Interested in"}
             </h2>
             <Button href={options.booking_url || "/contact"} variant="solid">
               {l.book_consultation || "Book a consultation"}
