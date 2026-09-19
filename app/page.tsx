@@ -7,6 +7,7 @@ import Section from "@/components/Section";
 import Container from "@/components/Container";
 import TreatmentCard from "@/components/TreatmentCard";
 import WaveDivider from "@/components/WaveDivider";
+import FooterWave from "@/components/FooterWave";
 import Button from "@/components/Button";
 import JsonLd from "@/components/JsonLd";
 
@@ -122,6 +123,9 @@ export default async function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* Elegant wave transition into the footer */}
+      <FooterWave />
     </>
   );
 }
