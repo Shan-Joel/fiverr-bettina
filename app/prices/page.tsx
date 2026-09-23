@@ -26,7 +26,6 @@ export default async function PricesPage() {
   return (
     <>
       <PageHeader
-        eyebrow={options.labels?.prices_eyebrow || "Prices"}
         title={page.title.rendered}
         intro={page.acf_data.intro}
       />
