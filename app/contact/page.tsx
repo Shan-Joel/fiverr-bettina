@@ -41,7 +41,6 @@ export default async function ContactPage() {
     <>
       <JsonLd data={medicalBusinessLd(options)} />
       <PageHeader
-        eyebrow={l.contact_page_eyebrow || "Contact"}
         title={page.title.rendered}
         intro={page.acf_data.intro}
       />

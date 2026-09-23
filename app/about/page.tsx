@@ -32,7 +32,6 @@ export default async function AboutPage() {
     <>
       <JsonLd data={medicalBusinessLd(options)} />
       <PageHeader
-        eyebrow={options.labels?.about_page_eyebrow || "The practice"}
         title={page.title.rendered}
         intro={page.acf_data.intro}
       />
