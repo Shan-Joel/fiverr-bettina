@@ -86,7 +86,7 @@ export default async function TreatmentPage({
               <Container>
                 <div className="pb-10 [text-shadow:0_2px_16px_rgba(0,0,0,0.6)]">
                   <p className="eyebrow mb-3 text-white/90">{l.treatment_eyebrow || "Treatment"}</p>
-                  <h1 className="text-4xl text-white sm:text-6xl">
+                  <h1 className="text-4xl !text-white sm:text-6xl">
                     {title.rendered}
                   </h1>
                 </div>
