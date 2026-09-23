@@ -59,7 +59,7 @@ export default function SocialIcons({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
-        className="transition-opacity hover:opacity-70"
+        className="transition-opacity hover:opacity-70 text-[#E1306C]"
       >
         <InstagramIcon className={iconClassName} />
       </a>
@@ -68,7 +68,7 @@ export default function SocialIcons({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Facebook"
-        className="transition-opacity hover:opacity-70"
+        className="transition-opacity hover:opacity-70 text-[#1877F2]"
       >
         <FacebookIcon className={iconClassName} />
       </a>

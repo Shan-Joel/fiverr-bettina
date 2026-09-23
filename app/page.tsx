@@ -37,6 +37,8 @@ export default async function HomePage() {
         </p>
       </Section>
 
+      <WaveDivider fill="#f5ede4" />
+
       {/* Treatments */}
       <Section id="treatments" background="cream">
         <div className="mb-14 text-center">
@@ -57,8 +59,6 @@ export default async function HomePage() {
           ))}
         </div>
       </Section>
-
-      <WaveDivider fill="#ffffff" />
 
       {/* About teaser */}
       <Section background="white">

@@ -32,8 +32,8 @@ export default function Footer({
             <SocialIcons
               instagram={options.social_instagram}
               facebook={options.social_facebook}
-              iconClassName="h-5 w-5"
-              className="mt-5 text-pine/80"
+              iconClassName="h-8 w-8"
+              className="mt-5"
             />
           </div>
 
