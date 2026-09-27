@@ -85,7 +85,6 @@ export default async function TreatmentPage({
             <div className="absolute inset-0 flex items-end">
               <Container>
                 <div className="pb-10 [text-shadow:0_2px_16px_rgba(0,0,0,0.6)]">
-                  <p className="eyebrow mb-3 text-white/90">{l.treatment_eyebrow || "Treatment"}</p>
                   <h1 className="text-4xl !text-white sm:text-6xl">
                     {title.rendered}
                   </h1>
@@ -107,7 +106,7 @@ export default async function TreatmentPage({
       <Section background="white">
         <div className="mx-auto max-w-3xl">
           {acf_data.teaser && (
-            <p className="mb-8 font-[family-name:var(--font-display)] text-2xl leading-snug text-ink sm:text-3xl">
+            <p className="mb-8 font-[family-name:var(--font-display)] text-2xl leading-snug text-[#AAC4BC] sm:text-3xl">
               {acf_data.teaser}
             </p>
           )}
